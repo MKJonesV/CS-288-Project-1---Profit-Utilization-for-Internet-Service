@@ -4,11 +4,13 @@ package edu.iastate.cs228.hw1;
 
 public class ISPBuisness {
 
-  TownCell
+  private String[][] t;
+  
   public void generateGrid(String str){
   }
 
   public void generateGrid(int n, int m, int seed){
+    
   }
   
 }
@@ -35,7 +37,7 @@ public static void main(String[] args){
       while (initialized == false) {
         System.out.println("Provide the desired number of rows, columns, and the seed integer separated by spaces:");
         str = s.nextLine();
-        String[] arr = str.split(" ")
+        String[] arr = str.split(" ");
         if(arr.length == 3) {
           buisness.generateGrid(arr[0], arr[1], arr[2]);
           initialized = true;
