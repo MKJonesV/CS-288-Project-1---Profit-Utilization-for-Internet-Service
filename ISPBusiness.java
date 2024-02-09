@@ -1,5 +1,6 @@
-import java.util.*;
 package edu.iastate.cs228.hw1;
+import java.util.*;
+
 // @author Michael Jones
 
 public class ISPBuisness {
@@ -57,7 +58,7 @@ public class ISPBuisness {
     double totalProfit = 0.0;
     for(int i = 0; i < arr2D.length; i++){
       for(int j = 0; j < arr2D.length; j++){
-        if(arr2D[i][j].equals("C"){
+        if(arr2D[i][j].equals("C")){
           totalProfit++;
         }
       }
