@@ -15,7 +15,7 @@ public class ISPBuisness {
     for(int i = 0, i < arr2D.length, i++){
       String rowVals = arr[i+1];
       for(int j = 0, j < arr2D[i].length, j++){
-        arr2D[i][j] = rowVals.substring(
+        arr2D[i][j] = rowVals.substring(j, j+1);
       }
     }
   }
@@ -40,6 +40,15 @@ public class ISPBuisness {
       return "O";
     } else {
       return "E"
+    }
+  }
+
+  public void showTown(){
+    for(int i = 0, i < arr2D.length, i++){
+      for(int j = 0, j < arr2D[i].length, j++){
+        System.out.print(arr2D[i][j]+" ");
+      }
+      System.out.println();
     }
   }
   
