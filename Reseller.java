@@ -1,2 +1,2 @@
-public class Reseller {
+public class Reseller extends TownCell {
 }
