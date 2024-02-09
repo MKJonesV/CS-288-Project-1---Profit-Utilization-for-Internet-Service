@@ -8,11 +8,39 @@ public class ISPBuisness {
   private String[][] arr2D;
   Random r = new Random();
   
-  public void generateGrid(String str){
+  public void generateGrid(String str){ // generates grid based off of text from main
+    String[] arr = str.split("\n");
+    String[] nums = arr[0].split(" ");
+    arr2D = new String[nums[0]][nums[1]];
+    for(int i = 0, i < arr2D.length, i++){
+      String rowVals = arr[i+1];
+      for(int j = 0, j < arr2D[i].length, j++){
+        arr2D[i][j] = rowVals.substring(
+      }
+    }
   }
 
-  public void generateGrid(int n, int m, int seed){
-    
+  public void generateGrid(int n, int m, int seed){ // generates grid randomly based off of input values from main
+    arr2D = new String[n][m];
+    for(int i = 0, i < arr2D.length, i++){
+      for(int j = 0, j < arr2D[i].length, j++){
+        arr2D[i][j] = randomUser(r.nextInt(5));
+      }
+    }
+  }
+
+  public String randomUser(int i){
+    if(i == 0){
+      return "C";
+    } else if(i == 1){
+      return "S";
+    } else if(i == 2){
+      return "R";
+    } else if(i == 3){
+      return "O";
+    } else {
+      return "E"
+    }
   }
   
 }
