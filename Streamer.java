@@ -1,2 +1,2 @@
-public class Streamer {
+public class Streamer extends TownCell {
 }
