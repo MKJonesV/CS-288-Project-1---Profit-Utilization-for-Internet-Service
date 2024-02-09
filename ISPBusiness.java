@@ -1,4 +1,4 @@
-import java.util.Scanner;
+import java.util.*;
 package edu.iastate.cs228.hw1;
 // @author Michael Jones
 
