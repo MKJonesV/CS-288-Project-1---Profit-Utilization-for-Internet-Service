@@ -1,2 +1,2 @@
-public class Casual{
+public class Casual extends TownCell {
 }
