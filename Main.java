@@ -1,4 +1,4 @@
-package edu.iastate.cs228.hw1;
+//package edu.iastate.cs228.hw1;
 import java.util.*;
 //@author Michael Jones
 
@@ -37,5 +37,7 @@ public class Main{
         System.out.println("Invalid input, please try again.");
       }
     }
+    System.out.println();
+    buisness.showTown();
   }
 }
