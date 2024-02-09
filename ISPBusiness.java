@@ -1,6 +1,5 @@
-package edu.iastate.cs228.hw1;
+//package edu.iastate.cs228.hw1;
 import java.util.*;
-
 // @author Michael Jones
 
 public class ISPBuisness {
@@ -12,7 +11,7 @@ public class ISPBuisness {
   public void generateGrid(String str){ // generates grid based off of text from main
     String[] arr = str.split("\n");
     String[] nums = arr[0].split(" ");
-    arr2D = new String[nums[0]][nums[1]];
+    arr2D = new String[Integer.parseInt(nums[0])][Integer.parseInt(nums[1])];
     for(int i = 0; i < arr2D.length; i++){
       String rowVals = arr[i+1];
       for(int j = 0; j < arr2D[i].length; j++){
