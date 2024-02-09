@@ -9,7 +9,7 @@ public class Town {
     grid = new TownCell[arr2D.length][arr2D[0].length]();
     for(int i = 0; i < arr2D.length; i++){
       for(int j = 0; j < arr2D[i].length; j++){
-        
+        grid[i][j] = arr2D[i][j].getTownCell();
       }
     }
   }
