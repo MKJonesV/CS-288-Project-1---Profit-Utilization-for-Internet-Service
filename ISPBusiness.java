@@ -5,6 +5,7 @@ package edu.iastate.cs228.hw1;
 public class ISPBuisness {
 
   private String[][] t;
+  Random r = new Random();
   
   public void generateGrid(String str){
   }
