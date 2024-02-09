@@ -1,4 +1,4 @@
-public Class InternetGrid {
+public Class TownCell {
   private int n;
   private int m;
   private String[][] Grid;
