@@ -1,32 +1,37 @@
-package edu.iastate.cs228.hw1;
-// @author Michael Jones
+//package edu.iastate.cs228.hw1;
+//@author Michael Jones
 
 public class Town {
-  
+
   TownCell[][] grid;
 
   public void initializeGrid(String[][] arr2D){
-    grid = new TownCell[arr2D.length][arr2D[0].length]();
+    grid = new TownCell[arr2D.length][arr2D[0].length];
     for(int i = 0; i < arr2D.length; i++){
       for(int j = 0; j < arr2D[i].length; j++){
-        grid[i][j] = arr2D[i][j].getTownCell();
+        grid[i][j] = getTownCell(arr2D[i][j]);
       }
     }
   }
 
   public TownCell getTownCell(String str){
     if(str.equals("C")){
-      return TownCell c = new Casual();
+      Casual c = new Casual();
+      return c;
     } else if(str.equals("S")){
-      return TownCell s = new Streamer();
+      Streamer s = new Streamer();
+      return s;
     } else if(str.equals("R")){
-      return TownCell r = new Reseller();
+      Reseller r = new Reseller();
+      return r;
     } else if(str.equals("O")){
-      return TownCell o = new Outage();
+      Outage o = new Outage();
+      return o;
     } else {
-      return TownCell e = new Empty();
+      Empty e = new Empty();
+      return e;
     }
-      
+
   }
-  
+
 }
