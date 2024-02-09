@@ -5,7 +5,7 @@ package edu.iastate.cs228.hw1;
 public class ISPBuisness {
 
   Town t = new Town();
-  private String[][] arr2D;
+  String[][] arr2D;
   Random r = new Random();
   
   public void generateGrid(String str){ // generates grid based off of text from main
