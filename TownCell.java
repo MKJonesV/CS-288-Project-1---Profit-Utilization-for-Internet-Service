@@ -1,7 +1,7 @@
-//package edu.iastate.cs228.hw1;
+package edu.iastate.cs228.hw1;
 //@author Michael Jones
 
-public abstract class TownCell {
+public class TownCell {
 
   protected Town plain;
   protected int row;
@@ -33,7 +33,7 @@ public abstract class TownCell {
    *  
    * @param counts of all customers
    */
-  public void census(int nCensus[]) {
+  public void census(int[] nCensus) {
     // zero the counts of all customers
     nCensus[RESELLER] = 0; 
     nCensus[EMPTY] = 0; 
@@ -41,8 +41,28 @@ public abstract class TownCell {
     nCensus[OUTAGE] = 0; 
     nCensus[STREAMER] = 0; 
 
-    //TODO: Write your code here.
-
+    
+    for(int i = -1; i < 2; i++){
+      for(int j = -1; j < 2; j++){
+        try {
+          if(i == 0 && j == 0){
+            continue;
+          }else if((plain.grid[row+i][col+j]).who() == State.RESELLER){
+            nCensus[RESELLER]++;
+          }else if((plain.grid[row+i][col+j]).who() == State.EMPTY){
+            nCensus[EMPTY]++;
+          }else if((plain.grid[row+i][col+j]).who() == State.CASUAL){
+            nCensus[CASUAL]++;
+          }else if((plain.grid[row+i][col+j]).who() == State.OUTAGE){
+            nCensus[OUTAGE]++;
+          }else if((plain.grid[row+i][col+j]).who() == State.STREAMER){
+            nCensus[STREAMER]++;
+          }
+        } catch (IndexOutOfBoundsException e){
+          continue;
+        }
+      }
+    }
   }
 
   /**
@@ -50,7 +70,9 @@ public abstract class TownCell {
    * 
    * @return State
    */
- // public abstract State who();
+  public State who(){
+    return State.EMPTY;
+  }
 
   /**
    * Determines the cell type in the next cycle.
@@ -58,6 +80,18 @@ public abstract class TownCell {
    * @param tNew: town of the next cycle
    * @return TownCell
    */
- // public abstract TownCell next(Town tNew);
+
+ public TownCell next(Town tNew){
+    return this;
+ }
+
+ public TownCell finalCases(TownCell oldCell, TownCell newCell, Town tNew){
+    if(!(oldCell.who() == State.OUTAGE || oldCell.who() == State.RESELLER) && (oldCell.nCensus[EMPTY] + oldCell.nCensus[OUTAGE] <= 1)){
+      newCell = new Reseller(tNew, oldCell.row, oldCell.col);
+    }else if(oldCell.nCensus[CASUAL] >= 5){
+      newCell = new Streamer(tNew, oldCell.row, oldCell.col);
+    }
+    return newCell;
+  }
 }
 
