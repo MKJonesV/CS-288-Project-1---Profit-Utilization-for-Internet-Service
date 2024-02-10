@@ -1,4 +1,4 @@
-//package edu.iastate.cs228.hw1;
+package edu.iastate.cs228.hw1;
 import java.awt.dnd.DragGestureEvent;
 import java.io.FileNotFoundException;
 import java.util.*;
@@ -7,6 +7,7 @@ import java.util.*;
 public class Main{
 
   public static Town tOld;
+  public static Town tNew;
   
   public static void main(String[] args){
   
@@ -50,7 +51,9 @@ public class Main{
           s.nextInt();
         }
       }
-      System.out.println(tOld);
+      //System.out.println("\n"+tOld+"\nProfit: $"+getProfit(tOld));
+      tOld = nextMonth(tOld);
+      //System.out.println("\n"+tOld+"\nProfit: $"+getProfit(tOld));
   }
 
   public static int getProfit(Town t){
@@ -69,4 +72,15 @@ public class Main{
     double d = (double) p / (tOld.getLength()*tOld.getWidth()*12);
     return d;
   }
+
+  public static Town nextMonth(Town t){
+    System.out.println("\n"+t);
+    tNew = new Town(t.getLength(), t.getWidth());
+    for(int i = 0; i < t.getLength(); i++){
+      for(int j = 0; j < t.getWidth(); j++){
+        tNew.setCell(i, j, t);
+      }
+    } 
+    return tNew;
+  } 
 }
