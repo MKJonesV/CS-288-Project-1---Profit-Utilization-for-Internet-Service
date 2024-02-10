@@ -1,4 +1,4 @@
-//package edu.iastate.cs228.hw1;
+package edu.iastate.cs228.hw1;
 //@author Michael Jones
 
 public class Town {
@@ -92,4 +92,9 @@ public class Town {
     return s;
   }
 
+  public void setCell(int x, int y, Town tOld){
+    grid[x][y] = tOld.grid[x][y].next(this);
+  }
+  
+  
 }
