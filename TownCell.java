@@ -1,4 +1,4 @@
-package edu.iastate.cs228.hw1;
+//package edu.iastate.cs228.hw1;
 //@author Michael Jones
 
 public class TownCell {
@@ -44,8 +44,8 @@ public class TownCell {
     
     for(int i = -1; i < 2; i++){
       for(int j = -1; j < 2; j++){
-        try {
-          if(i == 0 && j == 0){
+        try { 
+          if(i == 0 && j == 0){ // skips the center cell
             continue;
           }else if((plain.grid[row+i][col+j]).who() == State.RESELLER){
             nCensus[RESELLER]++;
@@ -58,7 +58,7 @@ public class TownCell {
           }else if((plain.grid[row+i][col+j]).who() == State.STREAMER){
             nCensus[STREAMER]++;
           }
-        } catch (IndexOutOfBoundsException e){
+        } catch (IndexOutOfBoundsException e){ // Catches any IndexOutOfBoundsExceptions thrown by the if statements as a result of the for loops, and continues to the next iteration of the for loops.
           continue;
         }
       }
@@ -84,6 +84,8 @@ public class TownCell {
  public TownCell next(Town tNew){
     return this;
  }
+
+  // The finalCases method goes through the additional cases for each cell type, and returns the next cell type in the cycle based on the neighboring cells from the previous montly grid.
 
  public TownCell finalCases(TownCell oldCell, TownCell newCell, Town tNew){
     if(!(oldCell.who() == State.OUTAGE || oldCell.who() == State.RESELLER) && (oldCell.nCensus[EMPTY] + oldCell.nCensus[OUTAGE] <= 1)){
