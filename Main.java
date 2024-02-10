@@ -1,4 +1,4 @@
-package edu.iastate.cs228.hw1;
+//package edu.iastate.cs228.hw1;
 import java.awt.dnd.DragGestureEvent;
 import java.io.FileNotFoundException;
 import java.util.*;
@@ -8,13 +8,14 @@ public class Main{
 
   public static Town tOld;
   public static Town tNew;
+  public static int profit = 0;
   
   public static void main(String[] args){
   
     Scanner s = new Scanner(System.in);
     boolean initialized = false;
     String str;
-    int profit = 0;
+    
     int x;
   
     while(initialized == false){
@@ -41,6 +42,7 @@ public class Main{
                   tOld.grid[i][j] = tOld.makeTownCell(r.nextInt(5), i, j, tOld);
                 }
               } 
+              
               initialized = true;
             } else {
               System.out.println("Invalid input, please try again");
@@ -51,30 +53,31 @@ public class Main{
           s.nextInt();
         }
       }
-      //System.out.println("\n"+tOld+"\nProfit: $"+getProfit(tOld));
-      tOld = nextMonth(tOld);
-      //System.out.println("\n"+tOld+"\nProfit: $"+getProfit(tOld));
+      
+      System.out.println("\n"+tOld+"\nProfit: $"+getProfit(tOld));
+      billingCycle();
+      
   }
 
   public static int getProfit(Town t){
-    int totalProfit = 0;
+    int totalMonthlyProfit = 0;
     for(int i = 0; i < t.getLength(); i++){
       for(int j = 0; j < t.getWidth(); j++){
         if(t.grid[i][j].toString().equals("C")){
-          totalProfit++;
+          totalMonthlyProfit++;
         }
       }
     }
-    return totalProfit;
+    profit += totalMonthlyProfit;
+    return totalMonthlyProfit;
   }
 
-  public static double finalProfit(int p){
-    double d = (double) p / (tOld.getLength()*tOld.getWidth()*12);
+  public static double finalProfit(){
+    double d = (double) Math.round((10000*profit) / (tOld.getLength()*tOld.getWidth()*12))/100;
     return d;
   }
 
   public static Town nextMonth(Town t){
-    System.out.println("\n"+t);
     tNew = new Town(t.getLength(), t.getWidth());
     for(int i = 0; i < t.getLength(); i++){
       for(int j = 0; j < t.getWidth(); j++){
@@ -83,4 +86,12 @@ public class Main{
     } 
     return tNew;
   } 
+
+  public static void billingCycle(){
+    for(int i = 0; i < 12; i++){
+      tOld = nextMonth(tOld);
+      System.out.println("\n"+tOld+"\nProfit: $"+getProfit(tOld));
+    }
+    System.out.println("\n"+finalProfit() + "%");
+  }
 }
