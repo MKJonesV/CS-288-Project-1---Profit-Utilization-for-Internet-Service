@@ -1,8 +1,9 @@
-//package edu.iastate.cs228.hw1;
+package edu.iastate.cs228.hw1;
+//@author Michael Jones
+
 import java.awt.dnd.DragGestureEvent;
 import java.io.FileNotFoundException;
 import java.util.*;
-//@author Michael Jones
 
 public class Main{
 
