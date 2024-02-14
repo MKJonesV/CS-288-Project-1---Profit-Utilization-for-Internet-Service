@@ -1,7 +1,7 @@
 package edu.iastate.cs228.hw1;
 //@author Michael Jones
 
-public class TownCell {
+public abstract class TownCell {
 
   protected Town plain;
   protected int row;
@@ -70,9 +70,7 @@ public class TownCell {
    * 
    * @return State
    */
-  public State who(){
-    return State.EMPTY;
-  }
+  public abstract State who();
 
   /**
    * Determines the cell type in the next cycle.
@@ -81,9 +79,7 @@ public class TownCell {
    * @return TownCell
    */
 
- public TownCell next(Town tNew){
-    return this;
- }
+ public abstract TownCell next(Town tNew);
 
   // The finalCases method goes through the additional cases for each cell type, and returns the next cell type in the cycle based on the neighboring cells from the previous montly grid.
 
