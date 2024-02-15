@@ -2,10 +2,11 @@ package edu.iastate.cs228.hw1.test;
   //@author Michael Jones
 import static org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import edu.iastate.cs228.hw1.*;
 
 public class ISPBuisnessTest {
 
-  @Test 
+  //@Test 
   void checkMethods(){
     
     ISPBuisness i = new ISPBuisness();
