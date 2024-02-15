@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import edu.iastate.cs228.hw1.*;
 
-public class ISPBuisnessTest {
+public class ISPBusinessTest {
 
   //@Test 
   void checkMethods(){
