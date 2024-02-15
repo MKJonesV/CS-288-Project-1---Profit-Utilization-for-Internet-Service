@@ -5,7 +5,7 @@ import java.awt.dnd.DragGestureEvent;
 import java.io.FileNotFoundException;
 import java.util.*;
 
-public class ISPBuisness{
+public class ISPBusiness{
 
   public static Town tOld;
   public static Town tNew;
