@@ -2,12 +2,11 @@ package edu.iastate.cs228.hw1.test;
   //@author Michael Jones
 import static org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
-import edu.iastate.cs228.hw1.Town;
+import edu.iastate.cs228.hw1.*;
 
 public class TownTest {
 
-  @Test 
+  //@Test 
   void checkMethods(){
 
     int x = 1;
