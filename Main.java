@@ -1,4 +1,4 @@
-package edu.iastate.cs228.hw1;
+//package edu.iastate.cs228.hw1;
 //@author Michael Jones
 
 import java.awt.dnd.DragGestureEvent;
@@ -10,16 +10,16 @@ public class Main{
   public static Town tOld;
   public static Town tNew;
   public static int totalProfit = 0;
-  
+
   public static void main(String[] args){
-  
+
     Scanner s = new Scanner(System.in);
     boolean initialized = false;
     String str;
     int x;
 
     // This while loop accounts for potential imputMismatchExceptions by using a boolean operator to check if the user inputted either a 1 or 2. 
-    
+
     while(initialized == false){
       System.out.println("How to populate grid (type 1 or 2): 1: from file text. 2: randomly with seed");
       x = s.nextInt();
@@ -41,14 +41,14 @@ public class Main{
           String[] arr = str.split(" ");
           if(arr.length == 3) {
             // generates grid randomly based off of input values from main
-              Random r = new Random();
+              Random r = new Random(Integer.ParseInt(arr[2]));
               tOld = new Town(Integer.parseInt(arr[0]), Integer.parseInt(arr[1])); // Calls a constructor in Town class to generate a grid of TownCells with the proper dimensions
               for(int i = 0; i < tOld.getLength(); i++){
                 for(int j = 0; j < tOld.getWidth(); j++){
                   tOld.grid[i][j] = tOld.makeTownCell(r.nextInt(5), i, j, tOld);
                 }
               } 
-              
+
               initialized = true;
             } else {
               System.out.println("Invalid input, please try again");
@@ -59,10 +59,10 @@ public class Main{
           s.nextInt();
         }
       }
-      
+
       System.out.println("\n"+tOld+"\nProfit: $"+getProfit(tOld));
       billingCycle();
-      
+
   }
 
   // Computes the monthly profit of the ISPBuisness and adds it on to the total profit
@@ -81,14 +81,14 @@ public class Main{
   }
 
   // Computes the final profit of the ISPBuisness as a percentage rounded to two decimal places
-  
+
   public static double finalProfit(){
     double d = (double) Math.round((10000*totalProfit) / (tOld.getLength()*tOld.getWidth()*12))/100;
     return d;
   }
 
   // returns the state of the town in the next month.
-  
+
   public static Town nextMonth(Town t){ 
     tNew = new Town(t.getLength(), t.getWidth());
     for(int i = 0; i < t.getLength(); i++){
@@ -100,7 +100,7 @@ public class Main{
   } 
 
   // Simulates the billing cycle of the ISPBuisness over a twelve month period, and prints the town states and the montly profits
-  
+
   public static void billingCycle(){
     for(int i = 0; i < 12; i++){
       tOld = nextMonth(tOld);
