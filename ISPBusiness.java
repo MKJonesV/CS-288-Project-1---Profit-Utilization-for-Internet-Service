@@ -41,7 +41,7 @@ public class Main{
           String[] arr = str.split(" ");
           if(arr.length == 3) {
             // generates grid randomly based off of input values from main
-              Random r = new Random(Integer.ParseInt(arr[2]));
+              Random r = new Random(Integer.parseInt(arr[2]));
               tOld = new Town(Integer.parseInt(arr[0]), Integer.parseInt(arr[1])); // Calls a constructor in Town class to generate a grid of TownCells with the proper dimensions
               for(int i = 0; i < tOld.getLength(); i++){
                 for(int j = 0; j < tOld.getWidth(); j++){
