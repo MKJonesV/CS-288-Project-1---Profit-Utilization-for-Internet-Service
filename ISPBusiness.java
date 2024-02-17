@@ -60,14 +60,13 @@ public class Main{
         }
       }
 
-      System.out.println("\n"+tOld+"\nProfit: $"+getProfit(tOld));
       billingCycle();
 
   }
 
   // Computes the monthly profit of the ISPBuisness and adds it on to the total profit
 
-  public static int getProfit(Town t){
+  public static void getProfit(Town t){
     int totalMonthlyProfit = 0;
     for(int i = 0; i < t.getLength(); i++){
       for(int j = 0; j < t.getWidth(); j++){
@@ -77,7 +76,6 @@ public class Main{
       }
     }
     totalProfit += totalMonthlyProfit;
-    return totalMonthlyProfit;
   }
 
   // Computes the final profit of the ISPBuisness as a percentage rounded to two decimal places
@@ -104,7 +102,7 @@ public class Main{
   public static void billingCycle(){
     for(int i = 0; i < 12; i++){
       tOld = nextMonth(tOld);
-      System.out.println("\n"+tOld+"\nProfit: $"+getProfit(tOld));
+      getProfit(tOld);
     }
     System.out.println("\n"+finalProfit() + "%");
   }
